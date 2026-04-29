@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    container_name: geolocation-api
+    ports:
+      - "9292:9292"
+    environment:
+      RACK_ENV: development
+      API_AUTH_TOKEN: ${API_AUTH_TOKEN}
+      IPSTACK_API_KEY: ${IPSTACK_API_KEY}
+      GEOLOCATION_PROVIDER: ipstack
+    volumes:
+      - .:/app
